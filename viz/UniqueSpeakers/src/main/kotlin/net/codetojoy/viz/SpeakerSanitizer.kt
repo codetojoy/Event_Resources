@@ -3,7 +3,7 @@ package net.codetojoy.viz
 
 import org.apache.commons.csv.*
 
-class SpeakersSanitizer : SanitizerInterface {
+class SpeakerSanitizer : SanitizerInterface {
     internal val UNKNOWN = "?"
 
     internal val SPEAKER_1 = "Speaker 1"

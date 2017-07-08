@@ -4,8 +4,8 @@ package net.codetojoy.viz
 import kotlin.test.assertEquals
 import org.junit.Test
 
-class SpeakersSanitizerTestSource {
-    val sanitizer = SpeakersSanitizer()
+class SpeakerSanitizerTestSource {
+    val sanitizer = SpeakerSanitizer()
 
     @Test fun testSanitize_MultipleFull() {
         val s = "Eddie Van Halen"

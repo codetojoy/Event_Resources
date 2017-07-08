@@ -14,9 +14,9 @@ fun main(args: Array<String>) {
     records.reverse()
 
     var allPeople = setOf<String>()
-    var speakersSanitizer = SpeakersSanitizer()
+    var speakerSanitizer = SpeakerSanitizer()
 
-    val monthInputs = records.map { MonthInput(it, speakersSanitizer) }
+    val monthInputs = records.map { MonthInput(it, speakerSanitizer) }
 
     val monthOutputs = monthInputs.map { monthInput ->
         val monthOutput = transform(monthInput, allPeople) 

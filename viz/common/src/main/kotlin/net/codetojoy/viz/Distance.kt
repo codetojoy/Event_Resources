@@ -10,7 +10,7 @@ fun String.isCloseMatch(s: String): Boolean {
 fun Set<String>.isRelativelyUnique(s: String) = 
     (this.find { it.isCloseMatch(s) } == null)
 
-// https://en.wikipedia.org/wiki/Levenshtein_distance#Iterative_With_Full_Matrix
+// https://en.wikipedia.org/wiki/Levenshtein_distance#Iterative_with_full_matrix
 
 fun findDistance(s: String, t:String): Int {
     val m = s.length

@@ -1,0 +1,45 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1.1', {packages: ['line']});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'month');
+      data.addColumn('number', '# unique speakers');
+
+      data.addRows([
+__DATA_ROWS
+      ]);
+
+      var options = {
+        chart: {
+          title: '# unique speakers over time',
+        },
+        axes: {
+            y: {
+                all: {
+                    range: {
+                        max: 40,
+                        min: 1
+                    }
+                }
+            }
+        },
+        width: 900,
+        height: 700
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="linechart_material"></div>
+</body>
+</html>

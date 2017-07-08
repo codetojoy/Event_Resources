@@ -7,6 +7,8 @@ import org.apache.commons.csv.*
 
 fun main(args: Array<String>) {
     val csvFile = args[0]
+    val templateHtml = args[1]
+    val outputHtml = args[2] 
 
     val reader = FileReader(csvFile)
     val records = CSVFormat.EXCEL.withHeader().parse(reader).getRecords()
@@ -24,11 +26,18 @@ fun main(args: Array<String>) {
         monthOutput
     }
 
-    println("\"Date\", \"Number\"")
-    monthOutputs.forEach {
-        val date = formatDate(it.monthInput.date)
-        println("[${date}, ${it.uniquePeople.size}],")
-        println("${it.uniquePeople}")
+    val dataRows = monthOutputs.map { 
+        "[${formatDate(it.monthInput.date)}, ${it.uniquePeople.size}], // ${it.uniquePeople}"
+    }
+
+    val newLines: List<List<String>> = File(templateHtml).readLines().map { line ->
+        if (line == "__DATA_ROWS") dataRows else listOf(line) 
+    }
+
+    val outputLines = newLines.flatten()
+
+    File(outputHtml).printWriter().use { out ->
+        outputLines.forEach { out.println(it) }
     }
 
     println("Ready.")

@@ -3,12 +3,9 @@ package net.codetojoy.viz
 
 val MATCH_DISTANCE = 3
 
-fun String.isCloseMatch(s: String): Boolean {
-    return (findDistance(this, s) <= MATCH_DISTANCE) 
-}
+fun String.isCloseMatch(s: String) = (findDistance(this, s) <= MATCH_DISTANCE) 
 
-fun Set<String>.isRelativelyUnique(s: String) = 
-    (this.find { it.isCloseMatch(s) } == null)
+fun Set<String>.isRelativelyUnique(s: String) = (this.find { it.isCloseMatch(s) } == null)
 
 // https://en.wikipedia.org/wiki/Levenshtein_distance#Iterative_with_full_matrix
 

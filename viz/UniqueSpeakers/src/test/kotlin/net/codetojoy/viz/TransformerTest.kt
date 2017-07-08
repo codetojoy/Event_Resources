@@ -6,6 +6,7 @@ import org.junit.Test
 
 class TransformerTestSource {
 
+    /*
     @Test fun testIsUnique_Basic() {
         val speaker = "Mozart"
         val allSpeakers = setOf("Bach", "Chopin")
@@ -25,6 +26,7 @@ class TransformerTestSource {
 
         assertFalse(result)
     }
+    */
 
     @Test fun testTransformer_Collision() {
         val date = "FEB 2015"

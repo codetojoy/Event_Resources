@@ -1,10 +1,30 @@
 
 package net.codetojoy.viz
 
-import kotlin.test.assertEquals
+import kotlin.test.*
 import org.junit.Test
 
 class DistanceTestSource {
+    @Test fun testIsCloseMatch_String() {
+        val s = "jb rainsberger"
+        val t = "j.b. rainsberger"
+        
+        // test
+        val result = s.isCloseMatch(t)
+
+        assertTrue(result)
+    }
+
+    @Test fun testContainsCloseMatch_Set() {
+        val s = setOf("jb rainsberger")
+        val t = "j.b. rainsberger"
+        
+        // test
+        val result = s.containsCloseMatch(t)
+
+        assertTrue(result)
+    }
+
     @Test fun testFindDistance_DiffTwo() {
         val s = "jb rainsberger"
         val t = "j.b. rainsberger"

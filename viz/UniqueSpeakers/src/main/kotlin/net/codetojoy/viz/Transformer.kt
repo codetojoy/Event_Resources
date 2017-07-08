@@ -1,13 +1,11 @@
 
 package net.codetojoy.viz
 
-val MATCH_DISTANCE = 4
-
 fun transform(monthInput: MonthInput, allSpeakers: Set<String>): MonthOutput {
     val speakers = HashSet(allSpeakers)
 
     monthInput.speakers.forEach { speaker ->
-        if (isUnique(speaker, allSpeakers)) {
+        if (! allSpeakers.containsCloseMatch(speaker)) {
             speakers.add(speaker)
         }
     }
@@ -16,6 +14,3 @@ fun transform(monthInput: MonthInput, allSpeakers: Set<String>): MonthOutput {
 
     return result
 }
-
-fun isUnique(speaker: String, allSpeakers: Set<String>) = 
-    (allSpeakers.find { it.isCloseMatch(speaker, MATCH_DISTANCE) } == null) 

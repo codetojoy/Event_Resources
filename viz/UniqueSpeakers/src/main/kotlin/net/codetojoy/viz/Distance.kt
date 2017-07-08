@@ -1,10 +1,14 @@
 
 package net.codetojoy.viz
 
-fun String.isCloseMatch(s: String, threshold: Int): Boolean {
-    return (findDistance(this, s) <= threshold) 
+val MATCH_DISTANCE = 4
+
+fun String.isCloseMatch(s: String): Boolean {
+    return (findDistance(this, s) <= MATCH_DISTANCE) 
 }
 
+fun Set<String>.containsCloseMatch(s: String) = 
+    (this.find { it.isCloseMatch(s) } != null)
 
 // https://en.wikipedia.org/wiki/Levenshtein_distance#Iterative_With_Full_Matrix
 

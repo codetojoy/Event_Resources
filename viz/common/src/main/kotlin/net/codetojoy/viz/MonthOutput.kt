@@ -1,8 +1,6 @@
 
 package net.codetojoy.viz
 
-import org.apache.commons.csv.*
-
 class MonthOutput {
     val monthInput: MonthInput
     val uniquePeople: Set<String> 

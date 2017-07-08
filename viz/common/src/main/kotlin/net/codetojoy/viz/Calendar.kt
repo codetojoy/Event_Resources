@@ -1,8 +1,7 @@
 
 package net.codetojoy.viz
 
-import org.joda.time.*
-import org.joda.time.format.*
+import org.joda.time.format.DateTimeFormat
 
 fun formatDate(s: String): String {
     val dateTime = DateTimeFormat.forPattern("MMM yyyy").parseDateTime(s)

@@ -45,7 +45,7 @@ fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
 
 fun buildOutputLines(monthOutputs: List<MonthOutput>, inputLines: List<String>): List<String> {
     val dataRows = monthOutputs.map { 
-        "[${formatDate(it.monthInput.date)}, ${it.uniquePeople.size}], // ${it.uniquePeople}"
+        "[${formatDate(it.date)}, ${it.uniquePeople.size}], // ${it.uniquePeople}"
     }
 
     val newLines = inputLines.map { line ->

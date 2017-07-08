@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     val monthInputs = records.map { MonthInput(it) }
 
     val monthOutputs = monthInputs.map { monthInput ->
-        val monthOutput = Transformer().transform(monthInput, allSpeakers) 
+        val monthOutput = transform(monthInput, allSpeakers) 
         allSpeakers = monthOutput.uniqueSpeakers
         monthOutput
     }

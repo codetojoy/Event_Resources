@@ -5,14 +5,13 @@ import kotlin.test.*
 import org.junit.Test
 
 class TransformerTestSource {
-    val transformer = Transformer()
 
     @Test fun testIsUnique_Basic() {
         val speaker = "Mozart"
         val allSpeakers = setOf("Bach", "Chopin")
         
         // test
-        val result = Transformer().isUnique(speaker, allSpeakers)
+        val result = isUnique(speaker, allSpeakers)
 
         assertTrue(result)
     }
@@ -22,7 +21,7 @@ class TransformerTestSource {
         val allSpeakers = setOf("JB Rainsberger", "Chopin")
         
         // test
-        val result = Transformer().isUnique(speaker, allSpeakers)
+        val result = isUnique(speaker, allSpeakers)
 
         assertFalse(result)
     }
@@ -34,7 +33,7 @@ class TransformerTestSource {
         val allSpeakers = setOf("J.S. Bach", "Chopin")
         
         // test
-        val result = Transformer().transform(monthInput, allSpeakers)
+        val result = transform(monthInput, allSpeakers)
 
         assertEquals(3, result.uniqueSpeakers.size)
         assertTrue(result.uniqueSpeakers.contains("J.S. Bach"))
@@ -49,7 +48,7 @@ class TransformerTestSource {
         val allSpeakers = setOf("Bach", "Chopin")
         
         // test
-        val result = Transformer().transform(monthInput, allSpeakers)
+        val result = transform(monthInput, allSpeakers)
 
         assertEquals(4, result.uniqueSpeakers.size)
         assertTrue(result.uniqueSpeakers.contains("Bach"))

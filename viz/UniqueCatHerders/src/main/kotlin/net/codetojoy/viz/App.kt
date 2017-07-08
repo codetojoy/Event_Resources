@@ -20,14 +20,14 @@ fun main(args: Array<String>) {
 
     val monthOutputs = monthInputs.map { monthInput ->
         val monthOutput = transform(monthInput, allCatHerders) 
-        allCatHerders = monthOutput.uniqueSpeakers
+        allCatHerders = monthOutput.uniquePeople
         monthOutput
     }
 
     monthOutputs.forEach {
         val date = formatDate(it.monthInput.date)
-        println("[${date}, ${it.uniqueSpeakers.size}],")
-        println("${it.uniqueSpeakers}")
+        println("[${date}, ${it.uniquePeople.size}],")
+        println("${it.uniquePeople}")
     }
 
     println("Ready.")

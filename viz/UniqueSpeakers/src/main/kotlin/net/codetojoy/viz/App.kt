@@ -13,22 +13,22 @@ fun main(args: Array<String>) {
 
     records.reverse()
 
-    var allSpeakers = setOf<String>()
+    var allPeople = setOf<String>()
     var speakersSanitizer = SpeakersSanitizer()
 
     val monthInputs = records.map { MonthInput(it, speakersSanitizer) }
 
     val monthOutputs = monthInputs.map { monthInput ->
-        val monthOutput = transform(monthInput, allSpeakers) 
-        allSpeakers = monthOutput.uniqueSpeakers
+        val monthOutput = transform(monthInput, allPeople) 
+        allPeople = monthOutput.uniquePeople
         monthOutput
     }
 
     println("\"Date\", \"Number\"")
     monthOutputs.forEach {
         val date = formatDate(it.monthInput.date)
-        println("[${date}, ${it.uniqueSpeakers.size}],")
-        // println("${it.uniqueSpeakers}")
+        println("[${date}, ${it.uniquePeople.size}],")
+        println("${it.uniquePeople}")
     }
 
     println("Ready.")

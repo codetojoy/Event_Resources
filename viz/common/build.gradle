@@ -10,14 +10,12 @@ buildscript {
 }
 
 apply plugin: 'kotlin'
-apply plugin: 'application'
 
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile project(':common')
     compile 'org.apache.commons:commons-csv:1.4'
     compile 'joda-time:joda-time:2.9.9'
 
@@ -27,19 +25,10 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
 
-mainClassName = 'net.codetojoy.viz.AppKt'
-
-run {
-    args "../Meetups.csv"
+jar {
+    doFirst {
+        ant.copy(todir: "${buildDir}/classes") {
+            ant.fileset(dir: "${buildDir}/kotlin-classes")
+        }
+    }
 }
-
-project.ext.stagingDir = "install"
-
-installDist.doFirst {
-    ant.delete(dir: project.ext.stagingDir)
-}
-
-installDist {
-    into project.ext.stagingDir
-}
-

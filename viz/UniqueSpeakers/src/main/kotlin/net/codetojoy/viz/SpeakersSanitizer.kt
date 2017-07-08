@@ -3,7 +3,7 @@ package net.codetojoy.viz
 
 import org.apache.commons.csv.*
 
-class Sanitizer {
+class SpeakersSanitizer : SanitizerInterface {
     internal val UNKNOWN = "?"
 
     internal val SPEAKER_1 = "Speaker 1"
@@ -13,7 +13,7 @@ class Sanitizer {
 
     internal val IGNORE_LIST = listOf("kooperman", "open forum", "?")
     
-    fun sanitize(record: CSVRecord): List<String> {
+    override fun sanitize(record: CSVRecord): List<String> {
         val speaker1 = record.get(SPEAKER_1)
         val speaker2 = record.get(SPEAKER_2)
         val result = sanitize(speaker1, speaker2)

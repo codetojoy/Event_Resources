@@ -1,7 +1,7 @@
 
 package net.codetojoy.viz
 
-import org.apache.commons.csv.*
+import org.apache.commons.csv.CSVRecord
 
 class MonthInput {
     val date: String
@@ -9,9 +9,9 @@ class MonthInput {
 
     internal val DATE = "Date"
 
-    constructor(record: CSVRecord) {
+    constructor(record: CSVRecord, sanitizer: SanitizerInterface) {
         this.date = record.get(DATE) 
-        this.speakers = Sanitizer().sanitize(record) 
+        this.speakers = sanitizer.sanitize(record) 
     }
 
     constructor(date: String, speakers: List<String>) {

@@ -1,0 +1,93 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1.1', {packages: ['line']});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'month');
+      data.addColumn('number', '# unique speakers');
+
+      data.addRows([
+[new Date('2012-04-01'), 0], // []
+[new Date('2012-05-01'), 1], // [michael easter]
+[new Date('2012-07-01'), 2], // [michael easter, bob shand]
+[new Date('2012-09-01'), 2], // [michael easter, bob shand]
+[new Date('2012-10-01'), 4], // [william mcmaster, michael easter, gordie noye, bob shand]
+[new Date('2012-11-01'), 5], // [william mcmaster, chris lee, michael easter, gordie noye, bob shand]
+[new Date('2012-12-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-01-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-02-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-03-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-04-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-05-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-06-01'), 6], // [william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-10-01'), 8], // [luke taylor, maureen kerr, william mcmaster, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2013-11-01'), 11], // [steven baker, sean whalley, luke taylor, maureen kerr, william mcmaster, derek campbell, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2014-01-01'), 11], // [steven baker, sean whalley, luke taylor, maureen kerr, william mcmaster, derek campbell, chris lee, michael easter, dustin sparks, gordie noye, bob shand]
+[new Date('2014-02-01'), 12], // [jb rainsberger, luke taylor, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, gordie noye]
+[new Date('2014-04-01'), 12], // [jb rainsberger, luke taylor, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, gordie noye]
+[new Date('2014-05-01'), 12], // [jb rainsberger, luke taylor, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, gordie noye]
+[new Date('2014-06-01'), 14], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2014-08-01'), 14], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2014-09-01'), 14], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2014-10-01'), 14], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2015-02-01'), 15], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2015-03-01'), 15], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2015-04-01'), 15], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2015-05-01'), 15], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, derek campbell, matt duffy, gordie noye]
+[new Date('2015-06-01'), 17], // [jb rainsberger, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-07-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-08-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-09-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-10-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-11-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2015-12-01'), 19], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2016-01-01'), 20], // [jb rainsberger, mark wright, kyron stubbs, luke taylor, ryan palmer, william mcmaster, ross evans, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2016-02-01'), 21], // [jb rainsberger, mark wright, kyron stubbs, mike gauthier, luke taylor, ryan palmer, william mcmaster, ross evans, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2016-03-01'), 23], // [steve buss, jb rainsberger, mark wright, kyron stubbs, mike gauthier, jeff bowser, luke taylor, ryan palmer, william mcmaster, ross evans, chris lee, michael easter, evan porter, nolan phillips, dustin sparks, bob shand, steven baker, sean whalley, maureen kerr, christian southgate, derek campbell, matt duffy, gordie noye]
+[new Date('2016-04-01'), 25], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, nolan phillips, bob shand, steven baker, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-05-01'), 25], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, nolan phillips, bob shand, steven baker, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-06-01'), 25], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, nolan phillips, bob shand, steven baker, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-08-01'), 25], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, nolan phillips, bob shand, steven baker, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-09-01'), 25], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, nolan phillips, bob shand, steven baker, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-10-01'), 27], // [jb rainsberger, kyron stubbs, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2016-11-01'), 29], // [jb rainsberger, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2017-01-01'), 30], // [jb rainsberger, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, suhaib qaiser, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2017-03-01'), 31], // [jb rainsberger, jim murphy, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, suhaib qaiser, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2017-04-01'), 31], // [jb rainsberger, jim murphy, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, suhaib qaiser, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, michael gauthier, gordie noye]
+[new Date('2017-05-01'), 32], // [jb rainsberger, jim murphy, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, suhaib qaiser, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, ron myers, michael gauthier, gordie noye]
+[new Date('2017-06-01'), 33], // [jb rainsberger, jim murphy, kyron stubbs, tracy wood, mike gauthier, luke taylor, william mcmaster, ross evans, chris lee, michael easter, evan porter, ricardo angel, dustin sparks, kody duncan, christian southgate, derek campbell, matt duffy, steve buss, suhaib qaiser, mark wright, jeff bowser, ryan palmer, ifo ikede, nolan phillips, bob shand, steven baker, jordan patterson, sean whalley, michael dunleavy, maureen kerr, ron myers, michael gauthier, gordie noye]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'PEIDevs Speakers',
+        },
+        axes: {
+            y: {
+                all: {
+                    range: {
+                        max: 40,
+                        min: 1
+                    }
+                }
+            }
+        },
+        width: 900,
+        height: 700
+      };
+
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="linechart_material"></div>
+</body>
+</html>

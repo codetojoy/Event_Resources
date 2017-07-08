@@ -30,7 +30,9 @@ dependencies {
 mainClassName = 'net.codetojoy.viz.AppKt'
 
 run {
-    args "../Meetups.csv"
+    args = [ "../../MeetUps.csv", 
+             "resources/template.catherders.html",
+             "catherders.html" ]
 }
 
 project.ext.stagingDir = "install"

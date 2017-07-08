@@ -1,7 +1,7 @@
 
 package net.codetojoy.viz
 
-val MATCH_DISTANCE = 4
+val MATCH_DISTANCE = 3
 
 fun String.isCloseMatch(s: String): Boolean {
     return (findDistance(this, s) <= MATCH_DISTANCE) 

@@ -15,14 +15,14 @@ class DistanceTestSource {
         assertTrue(result)
     }
 
-    @Test fun testContainsCloseMatch_Set() {
+    @Test fun testIsRelativelyUnique_Set() {
         val s = setOf("jb rainsberger")
         val t = "j.b. rainsberger"
         
         // test
-        val result = s.containsCloseMatch(t)
+        val result = s.isRelativelyUnique(t)
 
-        assertTrue(result)
+        assertFalse(result)
     }
 
     @Test fun testFindDistance_DiffTwo() {

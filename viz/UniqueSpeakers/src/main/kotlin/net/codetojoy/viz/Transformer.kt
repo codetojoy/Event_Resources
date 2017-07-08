@@ -5,7 +5,7 @@ fun transform(monthInput: MonthInput, allSpeakers: Set<String>): MonthOutput {
     val speakers = HashSet(allSpeakers)
 
     monthInput.speakers.forEach { speaker ->
-        if (! allSpeakers.containsCloseMatch(speaker)) {
+        if (allSpeakers.isRelativelyUnique(speaker)) {
             speakers.add(speaker)
         }
     }

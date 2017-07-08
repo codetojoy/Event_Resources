@@ -22,8 +22,10 @@ fun main(args: Array<String>) {
         monthOutput
     }
 
+    println("\"Date\", \"Number\"")
     monthOutputs.forEach {
-        println("${it.monthInput.date} ${it.uniqueSpeakers.size}")
+        val date = formatDate(it.monthInput.date)
+        println("[${date}, ${it.uniqueSpeakers.size}],")
         // println("${it.uniqueSpeakers}")
     }
 

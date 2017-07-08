@@ -18,7 +18,8 @@ fun main(args: Array<String>) {
 
     val monthOutputs = buildMonthOutputs(records)
 
-    val outputLines = buildOutputLines(monthOutputs, templateHtml)
+    val inputLines = File(templateHtml).readLines()
+    val outputLines = buildOutputLines(monthOutputs, inputLines)
 
     File(outputHtml).printWriter().use { out ->
         outputLines.forEach { out.println(it) }
@@ -42,12 +43,12 @@ fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
     return monthOutputs
 } 
 
-fun buildOutputLines(monthOutputs: List<MonthOutput>, templateHtml: String): List<String> {
+fun buildOutputLines(monthOutputs: List<MonthOutput>, inputLines: List<String>): List<String> {
     val dataRows = monthOutputs.map { 
         "[${formatDate(it.monthInput.date)}, ${it.uniquePeople.size}], // ${it.uniquePeople}"
     }
 
-    val newLines: List<List<String>> = File(templateHtml).readLines().map { line ->
+    val newLines = inputLines.map { line ->
         if (line == DATA_ROWS_TOKEN) dataRows else listOf(line) 
     }
 

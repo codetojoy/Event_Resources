@@ -1,16 +1,16 @@
 
 package net.codetojoy.viz
 
-fun transform(monthInput: MonthInput, allPeople: Set<String>): MonthOutput {
-    val people = HashSet(allPeople)
+fun transform(monthInput: MonthInput, allNames: Set<String>): MonthOutput {
+    val names = HashSet(allNames)
 
-    monthInput.people.forEach { person ->
-        if (allPeople.isRelativelyUnique(person)) {
-            people.add(person)
+    monthInput.names.forEach { name ->
+        if (allNames.isRelativelyUnique(name)) {
+            names.add(name)
         }
     }
 
-    val result = MonthOutput(monthInput, people)
+    val result = MonthOutput(monthInput, names)
 
     return result
 }

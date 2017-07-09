@@ -3,10 +3,10 @@ package net.codetojoy.viz
 
 class MonthOutput {
     val date: String
-    val uniquePeople: Set<String> 
+    val allNames: Set<String> 
 
-    constructor(monthInput:MonthInput, allPeople: Set<String>) {
+    constructor(monthInput:MonthInput, allNames: Set<String>) {
         this.date = monthInput.date
-        this.uniquePeople = HashSet(allPeople)
+        this.allNames = HashSet(allNames)
     }
 }

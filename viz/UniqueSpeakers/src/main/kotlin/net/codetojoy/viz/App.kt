@@ -29,14 +29,14 @@ fun main(args: Array<String>) {
 }
 
 fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
-    var allPeople = setOf<String>()
+    var allNames = setOf<String>()
     val speakerExtractor = SpeakerExtractor()
 
     val monthInputs = records.map { MonthInput(it, speakerExtractor) }
 
     val monthOutputs = monthInputs.map { monthInput ->
-        val monthOutput = transform(monthInput, allPeople) 
-        allPeople = monthOutput.uniquePeople
+        val monthOutput = transform(monthInput, allNames) 
+        allNames = monthOutput.allNames
         monthOutput
     }
 
@@ -45,7 +45,7 @@ fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
 
 fun buildOutputLines(monthOutputs: List<MonthOutput>, inputLines: List<String>): List<String> {
     val dataRows = monthOutputs.map { 
-        "[${formatDate(it.date)}, ${it.uniquePeople.size}], // ${it.uniquePeople}"
+        "[${formatDate(it.date)}, ${it.allNames.size}], // ${it.allNames}"
     }
 
     val newLines = inputLines.map { line ->

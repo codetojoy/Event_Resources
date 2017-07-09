@@ -1,12 +1,12 @@
 
 package net.codetojoy.viz
 
-import org.apache.commons.csv.*
+import org.apache.commons.csv.CSVRecord
 
-class CatHerderSanitizer : SanitizerInterface {
+class CatHerderExtractor : Extractor {
     internal val CAT_HERDER = "Cat Herder"
 
-    override fun sanitize(record: CSVRecord): List<String> {
+    override fun extractNames(record: CSVRecord): List<String> {
         val catHerder = record.get(CAT_HERDER)
         val result = sanitize(catHerder)
 

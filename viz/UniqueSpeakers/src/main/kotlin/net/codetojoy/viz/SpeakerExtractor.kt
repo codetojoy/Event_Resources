@@ -3,7 +3,7 @@ package net.codetojoy.viz
 
 import org.apache.commons.csv.*
 
-class SpeakerSanitizer : SanitizerInterface {
+class SpeakerExtractor : Extractor {
     internal val UNKNOWN = "?"
 
     internal val SPEAKER_1 = "Speaker 1"
@@ -13,15 +13,13 @@ class SpeakerSanitizer : SanitizerInterface {
 
     internal val IGNORE_LIST = listOf("kooperman", "open forum", "?")
     
-    override fun sanitize(record: CSVRecord): List<String> {
+    override fun extractNames(record: CSVRecord): List<String> {
         val speaker1 = record.get(SPEAKER_1)
         val speaker2 = record.get(SPEAKER_2)
-        val result = sanitize(speaker1, speaker2)
+        val result = sanitize(speaker1) + sanitize(speaker2)
 
         return result
     }
-
-    internal fun sanitize(s1: String, s2: String) = sanitize(s1) + sanitize(s2)
 
     internal fun sanitize(s: String): List<String> {
         val results = mutableListOf<String>()

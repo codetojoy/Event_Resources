@@ -4,17 +4,16 @@ package net.codetojoy.viz
 import kotlin.test.assertEquals
 import org.junit.Test
 
-class SpeakerSanitizerTestSource {
-    val sanitizer = SpeakerSanitizer()
+class SpeakerExtractorTestSource {
+    val speakerExtractor = SpeakerExtractor()
 
-    @Test fun testSanitize_MultipleFull() {
-        val s = "Eddie Van Halen"
+    @Test fun testSanitize_Multiple() {
         val t = "Randy Rhoads/Steve Vai"
         
         // test
-        val result = sanitizer.sanitize(s,t)
+        val result = speakerExtractor.sanitize(t)
 
-        val expected = listOf("eddie van halen", "randy rhoads", "steve vai")
+        val expected = listOf("randy rhoads", "steve vai")
         assertEquals(expected, result)
     }
 
@@ -22,7 +21,7 @@ class SpeakerSanitizerTestSource {
         val s = "kooperman"
         
         // test
-        val result = sanitizer.sanitize(s)
+        val result = speakerExtractor.sanitize(s)
 
         assertEquals(listOf(), result)
     }
@@ -31,7 +30,7 @@ class SpeakerSanitizerTestSource {
         val s = "open forum"
         
         // test
-        val result = sanitizer.sanitize(s)
+        val result = speakerExtractor.sanitize(s)
 
         assertEquals(listOf(), result)
     }
@@ -40,7 +39,7 @@ class SpeakerSanitizerTestSource {
         val s = "  "
         
         // test
-        val result = sanitizer.sanitize(s)
+        val result = speakerExtractor.sanitize(s)
 
         assertEquals(listOf<String>(), result)
     }
@@ -49,7 +48,7 @@ class SpeakerSanitizerTestSource {
         val s = "Bob Dole"
         
         // test
-        val result = sanitizer.sanitize(s)
+        val result = speakerExtractor.sanitize(s)
 
         assertEquals(listOf("bob dole"), result)
     }
@@ -58,7 +57,7 @@ class SpeakerSanitizerTestSource {
         val s = " ? "
         
         // test
-        val result = sanitizer.sanitize(s)
+        val result = speakerExtractor.sanitize(s)
 
         assertEquals(listOf(), result)
     }
@@ -67,7 +66,7 @@ class SpeakerSanitizerTestSource {
         val s = "abc,def/ijk"
         
         // test
-        val result = sanitizer.getTokens(s)
+        val result = speakerExtractor.getTokens(s)
 
         assertEquals(listOf("abc","def","ijk"), result)
     }

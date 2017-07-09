@@ -9,9 +9,9 @@ class MonthInput {
 
     internal val DATE = "Date"
 
-    constructor(record: CSVRecord, sanitizer: SanitizerInterface) {
+    constructor(record: CSVRecord, extractor: Extractor) {
         this.date = record.get(DATE) 
-        this.people = sanitizer.sanitize(record) 
+        this.people = extractor.extractNames(record) 
     }
 
     constructor(date: String, people: List<String>) {

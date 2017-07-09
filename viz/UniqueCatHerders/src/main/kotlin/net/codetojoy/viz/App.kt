@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
 
 fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
     var allPeople = setOf<String>()
-    var sanitizer = CatHerderSanitizer() 
+    var sanitizer = CatHerderExtractor() 
 
     val monthInputs = records.map { MonthInput(it, sanitizer) }
 

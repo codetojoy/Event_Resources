@@ -30,9 +30,9 @@ fun main(args: Array<String>) {
 
 fun buildMonthOutputs(records: List<CSVRecord>): List<MonthOutput> {
     var allPeople = setOf<String>()
-    val speakerSanitizer = SpeakerSanitizer()
+    val speakerExtractor = SpeakerExtractor()
 
-    val monthInputs = records.map { MonthInput(it, speakerSanitizer) }
+    val monthInputs = records.map { MonthInput(it, speakerExtractor) }
 
     val monthOutputs = monthInputs.map { monthInput ->
         val monthOutput = transform(monthInput, allPeople) 
